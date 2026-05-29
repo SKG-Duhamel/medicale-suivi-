@@ -1,19 +1,22 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+// Importation des pages existantes
 import Welcome from './components/Welcome';
 import Login from './components/Login';
+import LoginMedecin from './components/LoginMedecin';
 
 function App() {
   return (
     <Routes>
-      {/* Page d'accueil par défaut */}
+      {/* Page d'accueil */}
       <Route path="/" element={<Welcome />} />
       
-      {/* Page de connexion du patient (celle créée précédemment) */}
+      {/* Connexion Patient */}
       <Route path="/login-patient" element={<Login />} />
       
-      {/* Page de connexion du médecin (à créer plus tard) */}
-      <Route path="/login-medecin" element={<Login />} /> 
+      {/* Connexion Médecin */}
+      <Route path="/login-medecin" element={<LoginMedecin />} />
     </Routes>
   );
 }

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaStethoscope, FaShieldAlt, FaGlobeAfrica } from 'react-icons/fa';
+import { FaUserCircle, FaStethoscope, FaShieldAlt, FaGlobeAfrica, FaCog, FaTimes, FaUserShield } from 'react-icons/fa';
 import './Welcome.css';
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const [showAdminModal, setShowAdminModal] = useState(false);
 
   return (
     <div className="welcome-container">
+      
       {/* En-tête */}
       <header className="welcome-header">
         <h1>Bienvenue sur <span className="brand">SuiviHealth</span></h1>
@@ -24,10 +26,7 @@ const Welcome = () => {
           </div>
           <h2>Espace Patient</h2>
           <p>Connectez-vous pour accéder à votre espace santé</p>
-          <button 
-            className="btn-primary" 
-            onClick={() => navigate('/login-patient')}
-          >
+          <button className="btn-primary" onClick={() => navigate('/login-patient')}>
             Se connecter
           </button>
         </div>
@@ -39,10 +38,7 @@ const Welcome = () => {
           </div>
           <h2>Espace Médecin</h2>
           <p>Gérez vos consultations en toute simplicité</p>
-          <button 
-            className="btn-primary" 
-            onClick={() => navigate('/login-medecin')} // À créer plus tard si besoin
-          >
+          <button className="btn-primary" onClick={() => navigate('/login-medecin')}>
             Se connecter
           </button>
         </div>
@@ -66,6 +62,40 @@ const Welcome = () => {
           © {new Date().getFullYear()} SuiviHealth. Tous droits réservés.
         </p>
       </footer>
+
+      {/* Bouton Paramètres en bas à droite */}
+      <button className="settings-btn" onClick={() => setShowAdminModal(true)} title="Accès Administrateur">
+        <FaCog />
+      </button>
+
+      {/* Fenêtre Modale Administrateur */}
+      {showAdminModal && (
+        <div className="modal-overlay" onClick={() => setShowAdminModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowAdminModal(false)}>
+              <FaTimes />
+            </button>
+            
+            <div className="modal-header">
+              <FaUserShield className="modal-header-icon" />
+              <h2>Accès Administrateur</h2>
+            </div>
+
+            <div className="modal-body">
+              <div className="admin-option" onClick={() => navigate('/login-admin')}>
+                <h3>Espace Admin</h3>
+                <p>Gestion de la plateforme</p>
+              </div>
+              
+              <div className="admin-option super-admin" onClick={() => navigate('/login-super-admin')}>
+                <h3>Espace Super Admin</h3>
+                <p>Administration système complète</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
