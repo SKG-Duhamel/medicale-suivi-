@@ -1,199 +1,180 @@
 .med-login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f4f8;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
-  }
-  
-  /* Carte blanche centrale */
-  .med-login-card {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 420px;
-    margin-bottom: 30px;
-  }
-  
-  /* En-tête */
-  .med-login-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .med-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-  
-  .med-logo-icon {
-    color: #007bff;
-    font-size: 28px;
-  }
-  
-  .med-logo h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin: 0;
-    font-weight: 700;
-  }
-  
-  .med-subtitle {
-    color: #7f8c8d;
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  /* Formulaire */
-  .med-login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .med-input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .med-input-group label {
-    font-size: 13px;
-    color: #555;
-    font-weight: 600;
-    text-transform: uppercase; /* Pour coller à l'image "NUMÉRO RPPS OU EMAIL" */
-    letter-spacing: 0.5px;
-  }
-  
-  .med-input-group input {
-    padding: 14px 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    background-color: #f9f9f9;
-  }
-  
-  .med-input-group input:focus {
-    border-color: #007bff;
-    background-color: #fff;
-  }
-  
-  /* Bouton principal */
-  .med-btn-primary {
-    background-color: #007bff;
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  .med-btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Séparateur */
-  .med-separator {
-    display: flex;
-    align-items: center;
-    margin: 25px 0;
-    color: #aaa;
-    font-size: 13px;
-  }
-  
-  .med-separator::before,
-  .med-separator::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #e0e0e0;
-  }
-  
-  .med-separator span {
-    padding: 0 10px;
-  }
-  
-  /* Bouton Google */
-  .med-btn-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    padding: 14px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .med-btn-google:hover {
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  
-  .med-google-icon {
-    font-size: 22px;
-  }
-  
-  /* Pied de page */
-  .med-footer {
-    text-align: center;
-    max-width: 420px;
-  }
-  
-  .med-certifications {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .med-cert-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    font-size: 13px;
-    color: #2c3e50;
-    border: 1px solid #ddd;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: #fff;
-  }
-  
-  .med-cert-icon {
-    color: #007bff;
-    font-size: 14px;
-  }
-  
-  .med-legal-notice {
-    font-size: 11px;
-    color: #999;
-    line-height: 1.5;
-    margin-bottom: 5px;
-  }
-  
-  .med-copyright {
-    font-size: 12px;
-    color: #555;
-    font-weight: 500;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.med-login-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Bouton Retour */
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  z-index: 10;
+}
+.back-btn:hover { color: #007bff; }
+
+/* En-tête */
+.med-login-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
+}
+
+/* NOUVEAU : Logo SuiviHealth Commun */
+.app-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.app-logo-icon {
+  color: #007bff;
+  font-size: 28px;
+}
+.app-logo h1 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* NOUVEAU : Identité de l'espace */
+.space-identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+.space-icon { font-size: 22px; }
+.med-color { color: #28a745; } /* Vert médecin */
+.space-identity h2 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+}
+
+.med-subtitle {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Formulaire */
+.med-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.med-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.med-input-group label {
+  font-size: 13px;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.med-input-group input {
+  padding: 14px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+}
+.med-input-group input:focus {
+  border-color: #007bff;
+  background-color: #fff;
+}
+
+.med-btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+.med-btn-primary:hover { background-color: #0056b3; }
+
+.med-separator {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: #aaa;
+  font-size: 13px;
+}
+.med-separator::before, .med-separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+.med-separator span { padding: 0 10px; }
+
+.med-btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #333;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.med-btn-google:hover { background-color: #f8f9fa; }
+.med-google-icon { font-size: 22px; }
+
+/* Pied de page */
+.med-footer { text-align: center; max-width: 420px; }
+.med-certifications { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; }
+.med-cert-badge {
+  display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px;
+  color: #2c3e50; border: 1px solid #ddd; padding: 6px 12px; border-radius: 20px; background: #fff;
+}
+.med-cert-icon { color: #007bff; font-size: 14px; }
+.med-legal-notice { font-size: 11px; color: #999; line-height: 1.5; margin-bottom: 5px; }
+.med-copyright { font-size: 12px; color: #555; font-weight: 500; }

@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
-import { FaHeartbeat } from 'react-icons/fa';    // Icône logo santé
+import { useNavigate, Link } from 'react-router-dom';
+import { FaHeartbeat, FaArrowLeft } from 'react-icons/fa';
 import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState(''); // Changé pour un nom d'utilisateur générique
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Connexion en cours avec:', { email, password });
-    // Ajoute ici ta logique d'authentification (API, Firebase, etc.)
+    // On extrait la partie avant le @ si c'est un email, sinon on prend le nom tel quel
+    const displayName = username.includes('@') ? username.split('@')[0] : username;
+    const capitalizedName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+    
+    // On redirige en passant le nom dans le state
+    navigate('/dashboard-patient', { state: { name: capitalizedName } });
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        {/* En-tête */}
+        
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          <FaArrowLeft /> Retour
+        </button>
+
         <div className="login-header">
           <div className="logo">
             <FaHeartbeat className="logo-icon" />
@@ -25,20 +35,18 @@ const Login = () => {
           <p className="subtitle">Connectez-vous à votre compte</p>
         </div>
 
-        {/* Formulaire */}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="input-group">
-            <label htmlFor="email">Adresse e-mail</label>
+            <label htmlFor="username">Nom d'utilisateur ou Email</label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Entrez votre adresse email"
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Ex: jpierre ou jean@email.com"
               required
             />
           </div>
-
           <div className="input-group">
             <label htmlFor="password">Mot de passe</label>
             <input
@@ -50,22 +58,12 @@ const Login = () => {
               required
             />
           </div>
-
-          <button type="submit" className="btn-primary">
-            Se connecter
-          </button>
+          <button type="submit" className="btn-primary">Se connecter</button>
         </form>
 
-        
-
-        {/* Pied de page */}
         <div className="login-footer">
-          <p>
-            Pas encore de compte ? <a href="/register">Créer un compte</a>
-          </p>
-          <p className="privacy">
-            En vous connectant, vous acceptez nos <a href="/terms">Conditions d'utilisation</a> et notre <a href="/privacy">Politique de confidentialité</a>.
-          </p>
+          <p>Pas encore de compte ? <Link to="/register-patient">Créer un compte</Link></p>
+          <p className="privacy">En vous connectant, vous acceptez nos <a href="/terms">Conditions d'utilisation</a> et notre <a href="/privacy">Politique de confidentialité</a>.</p>
         </div>
       </div>
     </div>

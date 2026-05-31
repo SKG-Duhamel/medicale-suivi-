@@ -1,0 +1,122 @@
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+  }
+  
+  .admin-login-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+  }
+  
+  /* Bouton Retour */
+  .back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    z-index: 10;
+  }
+  .back-btn-admin { color: rgba(255, 255, 255, 0.8); }
+  .back-btn-admin:hover { color: #ffffff; }
+  
+  /* En-tête Orange */
+  .admin-login-header {
+    background-color: #e67e22;
+    color: white;
+    padding: 40px 20px 30px 20px; /* Un peu plus d'espace en haut */
+    text-align: center;
+    position: relative;
+  }
+  
+  /* NOUVEAU : Logo SuiviHealth Commun (couleur blanche pour le fond orange) */
+  .app-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .app-logo-icon { font-size: 28px; color: #007bff; }
+  .app-logo h1 { font-size: 24px; color: #2c3e50; margin: 0; font-weight: 700; }
+  
+  .app-logo-white .app-logo-icon { color: #ffffff; }
+  .app-logo-white h1 { color: #ffffff; }
+  
+  /* NOUVEAU : Identité de l'espace */
+  .space-identity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .space-icon { font-size: 22px; }
+  .admin-color { color: #ffffff; } /* Icône blanche sur fond orange */
+  .space-identity h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+  }
+  .admin-login-header .space-identity h2 { color: #ffffff; } /* Texte blanc sur fond orange */
+  
+  .admin-login-header p { margin: 0; font-size: 14px; opacity: 0.9; }
+  
+  /* Formulaire */
+  .admin-login-form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .admin-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .admin-input-group label {
+    font-size: 13px; color: #555; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .admin-input-group input {
+    padding: 12px 15px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 15px;
+    outline: none; transition: border-color 0.3s ease; background-color: #f9f9f9;
+  }
+  .admin-input-group input:focus { border-color: #e67e22; background-color: #fff; }
+  
+  /* Case à cocher */
+  .admin-remember-me { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
+  .admin-remember-me input[type="checkbox"] { width: 16px; height: 16px; accent-color: #e67e22; cursor: pointer; }
+  .admin-remember-me label { cursor: pointer; }
+  
+  /* Bouton principal */
+  .admin-btn-primary {
+    background-color: #e67e22; color: white; padding: 14px; border: none; border-radius: 8px;
+    font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease; margin-top: 10px;
+  }
+  .admin-btn-primary:hover { background-color: #d35400; }
+  
+  /* Pied de page Sécurité */
+  .admin-security-footer {
+    display: flex; align-items: center; gap: 12px; padding: 20px 30px; background-color: #fdf2e9; border-top: 1px solid #f0e0d0;
+  }
+  .admin-security-icon { font-size: 24px; color: #e67e22; }
+  .admin-security-title { font-size: 14px; font-weight: 600; color: #333; margin: 0; }
+  .admin-security-sub { font-size: 12px; color: #777; margin: 0; }

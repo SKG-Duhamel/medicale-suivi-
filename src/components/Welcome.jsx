@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUserCircle, FaStethoscope, FaShieldAlt, FaGlobeAfrica, FaCog, FaTimes, FaUserShield } from 'react-icons/fa';
+import { FaUserCircle, FaStethoscope, FaShieldAlt, FaGlobeAfrica, FaCog, FaTimes, FaUserShield, FaHeartbeat } from 'react-icons/fa'; // Ajout de FaHeartbeat
 import './Welcome.css';
 
 const Welcome = () => {
@@ -12,7 +12,13 @@ const Welcome = () => {
       
       {/* En-tête */}
       <header className="welcome-header">
-        <h1>Bienvenue sur <span className="brand">SuiviHealth</span></h1>
+        {/* NOUVEAU : Logo SuiviHealth */}
+        <div className="app-logo">
+          <FaHeartbeat className="app-logo-icon" />
+          <h1>SuiviHealth</h1>
+        </div>
+        
+        <h2>Bienvenue sur SuiviHealth</h2>
         <p className="subtitle">Plateforme professionnelle de santé numérique</p>
       </header>
 

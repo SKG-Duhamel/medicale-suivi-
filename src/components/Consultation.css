@@ -1,0 +1,137 @@
+.consultation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+  }
+  
+  .consultation-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  /* Bouton Retour */
+  .back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    z-index: 10;
+  }
+  .back-btn:hover { color: #007bff; }
+  
+  /* En-tête */
+  .consultation-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 10px;
+  }
+  
+  .app-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .app-logo-icon { color: #007bff; font-size: 28px; }
+  .app-logo h1 { font-size: 24px; color: #2c3e50; margin: 0; font-weight: 700; }
+  
+  .consultation-header h2 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+  
+  .subtitle {
+    color: #7f8c8d;
+    font-size: 15px;
+    margin: 0;
+  }
+  
+  /* Options de consultation */
+  .consultation-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .option-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .option-card:hover {
+    border-color: #007bff;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .option-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  
+  .general-icon {
+    background-color: #e6f2ff;
+    color: #007bff;
+  }
+  
+  .specialist-icon {
+    background-color: #fff3e0;
+    color: #fd7e14;
+  }
+  
+  .option-info {
+    flex: 1;
+  }
+  
+  .option-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .option-desc {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .option-price {
+    margin: 0;
+    font-size: 14px;
+    color: #28a745;
+    font-weight: 500;
+  }
