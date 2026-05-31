@@ -1,0 +1,49 @@
+/* Import des bases communes depuis GestionHopitaux.css ou réécriture rapide */
+.gestion-container { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; }
+.gestion-card { background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 900px; position: relative; margin-top: 20px; }
+.back-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; font-weight: 500; z-index: 10; }
+.back-btn:hover { color: #7c3aed; }
+.app-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
+.app-logo-icon { font-size: 28px; }
+.app-logo h1 { font-size: 24px; color: #1e293b; margin: 0; font-weight: 700; }
+.gestion-header { text-align: center; margin-bottom: 30px; }
+.gestion-header h2 { margin: 0; color: #1e293b; font-size: 22px; }
+.sa-logo-color { color: #7c3aed; }
+.sa-plan-badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+.sa-plan-badge.premium { background: #f5f3ff; color: #7c3aed; }
+.sa-plan-badge.standard { background: #f1f5f9; color: #64748b; }
+
+/* Stats Premium */
+.sub-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px; }
+.sub-stat { display: flex; align-items: center; gap: 15px; padding: 20px; border-radius: 12px; }
+.sub-stat-icon { font-size: 28px; }
+.sub-stat h3 { margin: 0; font-size: 24px; color: #1e293b; font-weight: 700; }
+.sub-stat p { margin: 0; font-size: 13px; color: #64748b; }
+.premium-bg { background: #f5f3ff; border: 1px solid #ddd6fe; }
+.premium-bg .sub-stat-icon { color: #7c3aed; }
+.standard-bg { background: #f8fafc; border: 1px solid #e2e8f0; }
+
+/* List */
+.sub-list { display: flex; flex-direction: column; gap: 15px; }
+.sub-item { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px; background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; transition: 0.2s; }
+.sub-item:hover { border-color: #c4b5fd; }
+.sub-item.premium { border-left: 5px solid #7c3aed; background: #fcfbff; }
+.sub-item.standard { border-left: 5px solid #94a3b8; }
+
+.sub-info { flex: 1; }
+.sub-info h3 { margin: 0 0 5px 0; color: #1e293b; font-size: 16px; }
+.sub-details { margin: 0; color: #64748b; font-size: 13px; }
+
+.sub-actions { display: flex; align-items: center; gap: 15px; }
+
+.btn-upgrade { background: #7c3aed; color: #fff; border: none; padding: 8px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: 0.2s; white-space: nowrap; }
+.btn-upgrade:hover { background: #6d28d9; }
+
+.btn-downgrade { background: #fee2e2; color: #b91c1c; border: none; padding: 8px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: 0.2s; white-space: nowrap; }
+.btn-downgrade:hover { background: #fecaca; }
+
+@media (max-width: 768px) {
+  .sub-summary { grid-template-columns: 1fr; }
+  .sub-item { flex-direction: column; align-items: flex-start; }
+  .sub-actions { width: 100%; justify-content: space-between; margin-top: 10px; }
+}

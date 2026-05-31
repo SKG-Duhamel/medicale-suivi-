@@ -1,30 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { FaHeartbeat, FaShieldAlt, FaGlobeAfrica } from 'react-icons/fa';
+import { FaHeartbeat, FaShieldAlt, FaGlobeAfrica, FaBars, FaTimes } from 'react-icons/fa'; // Ajout de FaBars et FaTimes
 import './PublicLayout.css';
 
 const PublicLayout = () => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false); // État pour le menu mobile
+
+  // Fonction pour naviguer et fermer le menu en même temps
+  const handleNavigate = (path) => {
+    navigate(path);
+    setMenuOpen(false);
+  };
 
   return (
     <div className="public-layout">
+      
       {/* Navbar */}
       <nav className="pub-navbar">
-        <div className="pub-nav-logo" onClick={() => navigate('/')}>
+        <div className="pub-nav-logo" onClick={() => handleNavigate('/')}>
           <FaHeartbeat className="pub-logo-icon" />
           <span>SuiviHealth</span>
         </div>
-        <div className="pub-nav-links">
-          <button onClick={() => navigate('/')}>Accueil</button>
-          <button onClick={() => navigate('/services')}>Services</button>
-          <button onClick={() => navigate('/a-propos')}>À propos</button>
-          <button className="pub-btn-login" onClick={() => navigate('/accueil-roles')}>
+        
+        {/* Bouton Hamburger pour mobile */}
+        <button className="hamburger-btn" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Liens de navigation (avec classe dynamique pour le menu mobile) */}
+        <div className={`pub-nav-links ${menuOpen ? 'open' : ''}`}>
+          <button onClick={() => handleNavigate('/')}>Accueil</button>
+          <button onClick={() => handleNavigate('/services')}>Services</button>
+          <button onClick={() => handleNavigate('/a-propos')}>À propos</button>
+          <button className="pub-btn-login" onClick={() => handleNavigate('/accueil-roles')}>
             Se connecter
           </button>
         </div>
       </nav>
 
-      {/* Le contenu de la page (Accueil, Services, etc.) s'affiche ici */}
+      {/* Le contenu de la page s'affiche ici */}
       <main className="pub-main-content">
         <Outlet />
       </main>
@@ -39,16 +54,16 @@ const PublicLayout = () => {
           <div className="footer-col">
             <h4>Navigation</h4>
             <ul>
-              <li><button onClick={() => navigate('/')}>Accueil</button></li>
-              <li><button onClick={() => navigate('/services')}>Nos services</button></li>
-              <li><button onClick={() => navigate('/a-propos')}>Qui sommes-nous</button></li>
+              <li><button onClick={() => handleNavigate('/')}>Accueil</button></li>
+              <li><button onClick={() => handleNavigate('/services')}>Nos services</button></li>
+              <li><button onClick={() => handleNavigate('/a-propos')}>Qui sommes-nous</button></li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Espaces</h4>
             <ul>
-              <li><button onClick={() => navigate('/login-patient')}>Espace Patient</button></li>
-              <li><button onClick={() => navigate('/login-medecin')}>Espace Médecin</button></li>
+              <li><button onClick={() => handleNavigate('/login-patient')}>Espace Patient</button></li>
+              <li><button onClick={() => handleNavigate('/login-medecin')}>Espace Médecin</button></li>
             </ul>
           </div>
         </div>

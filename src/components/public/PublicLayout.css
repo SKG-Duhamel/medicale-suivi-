@@ -28,11 +28,75 @@
 .footer-bottom p { color: #777; font-size: 13px; }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
-  .pub-nav-links button:not(.pub-btn-login) { display: none; } /* Cache liens sur mobile */
-}
+/* Hamburger Button (Caché sur Desktop) */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #2c3e50;
+    cursor: pointer;
+  }
+  
+  /* Responsive Mobile */
+  @media (max-width: 768px) {
+    /* Afficher le bouton Hamburger */
+    .hamburger-btn {
+      display: block;
+    }
+  
+    /* Transformer la navbar pour accueillir le menu déroulant */
+    .pub-navbar {
+      flex-wrap: wrap;
+    }
+  
+    /* Cacher les liens par défaut sur mobile, et les afficher en colonne si la classe 'open' est présente */
+    .pub-nav-links {
+      display: none;
+      flex-basis: 100%;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 20px 0;
+      border-top: 1px solid #eee;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    }
+  
+    .pub-nav-links.open {
+      display: flex;
+    }
+  
+    /* Style des liens dans le menu mobile */
+    .pub-nav-links button {
+      padding: 15px 5%;
+      text-align: left;
+      width: 100%;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 16px;
+    }
+  
+    /* Style du bouton login dans le menu mobile */
+    .pub-nav-links .pub-btn-login {
+      background-color: transparent !important;
+      color: #007bff !important;
+      border: 2px solid #007bff !important;
+      border-radius: 8px !important;
+      margin: 15px 5% 0;
+      width: calc(100% - 10%);
+      text-align: center !important;
+    }
+  
+    /* Ajustement du Footer sur mobile */
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+    
+    /* Ajustement des pages splittées sur mobile */
+    .split-layout { flex-direction: column; gap: 30px; }
+    .split-image { width: 100%; }
+    .split-content { width: 100%; text-align: center; }
+    .feature-item-inline { flex-direction: column; align-items: center; text-align: center; }
+    .about-block { text-align: center; }
+    .about-block .about-icon { margin-left: auto; margin-right: auto; }
+  }
 /* ========================================= */
 /* STYLES COMMUNS DES PAGES PUBLIQUES        */
 /* ========================================= */

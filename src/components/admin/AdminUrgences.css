@@ -1,0 +1,65 @@
+/* Réutilisation des bases communes admin */
+.gestion-container { display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; }
+.gestion-card { background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 900px; position: relative; margin-top: 20px; }
+.back-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; font-weight: 500; z-index: 10; }
+.back-btn:hover { color: #007bff; }
+.app-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
+.app-logo-icon { color: #007bff; font-size: 28px; }
+.app-logo h1 { font-size: 24px; color: #1e293b; margin: 0; font-weight: 700; }
+.gestion-header { text-align: center; margin-bottom: 30px; }
+.gestion-header h2 { margin: 0; color: #1e293b; font-size: 22px; }
+.no-results { text-align: center; color: #64748b; padding: 20px; font-style: italic; background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1; }
+
+/* Synthèse Urgences */
+.urg-admin-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; }
+.urg-stat-card { display: flex; align-items: center; gap: 15px; padding: 20px; border-radius: 12px; }
+.urg-stat-card svg { font-size: 28px; }
+.urg-stat-card h3 { margin: 0; font-size: 24px; color: #1e293b; font-weight: 700; }
+.urg-stat-card p { margin: 0; font-size: 14px; color: #64748b; }
+
+.urg-stat-card.critical { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; }
+.urg-stat-card.resolved { background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
+
+/* Onglets */
+.urg-tabs { display: flex; border-bottom: 2px solid #e2e8f0; margin-bottom: 20px; }
+.urg-tab-btn { flex: 1; padding: 12px; background: none; border: none; border-bottom: 3px solid transparent; font-weight: 600; color: #94a3b8; cursor: pointer; font-size: 15px; font-family: inherit; transition: 0.2s; }
+.urg-tab-btn:hover { color: #dc2626; }
+.urg-tab-btn.active { color: #dc2626; border-bottom-color: #dc2626; }
+.urg-tab-btn.active.resolved { color: #16a34a; border-bottom-color: #16a34a; }
+
+/* Liste des alertes */
+.urg-admin-list { display: flex; flex-direction: column; gap: 15px; }
+.urg-admin-item { display: flex; gap: 20px; padding: 20px; background: #ffffff; border-radius: 10px; border: 1px solid #e2e8f0; border-left: 5px solid #cbd5e1; transition: 0.2s; }
+.urg-admin-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+.urg-admin-item.critique { border-left-color: #dc2626; background: #fffafa; }
+.urg-admin-item.élevée { border-left-color: #f59e0b; background: #fffbeb; }
+.urg-admin-item.moyenne { border-left-color: #3b82f6; background: #eff6ff; }
+
+.urg-severity-badge { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 70px; font-size: 12px; font-weight: 700; padding-top: 5px; }
+.urg-severity-badge svg { font-size: 24px; }
+.critique .urg-severity-badge { color: #dc2626; }
+.élevée .urg-severity-badge { color: #f59e0b; }
+.moyenne .urg-severity-badge { color: #3b82f6; }
+
+.urg-admin-info { flex: 1; }
+.urg-admin-info h3 { margin: 0 0 5px 0; color: #1e293b; font-size: 16px; }
+.urg-desc { margin: 0 0 10px 0; color: #374151; font-size: 14px; line-height: 1.4; }
+.urg-meta { display: flex; gap: 15px; font-size: 12px; color: #6b7280; }
+.urg-time, .urg-handler { display: flex; align-items: center; gap: 5px; }
+.urg-handler { color: #007bff; font-weight: 600; }
+
+.urg-admin-actions { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+.btn-resolve { background: #16a34a; color: #fff; border: none; padding: 8px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: 0.2s; white-space: nowrap; }
+.btn-resolve:hover { background: #15803d; }
+.btn-view-patient { background: #f1f5f9; color: #64748b; border: none; padding: 8px 15px; border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; transition: 0.2s; }
+.btn-view-patient:hover { background: #e2e8f0; color: #007bff; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .urg-admin-item { flex-direction: column; }
+  .urg-severity-badge { flex-direction: row; min-width: auto; }
+  .urg-meta { flex-direction: column; gap: 5px; }
+  .urg-admin-actions { flex-direction: row; width: 100%; }
+  .btn-resolve, .btn-view-patient { flex: 1; justify-content: center; }
+}

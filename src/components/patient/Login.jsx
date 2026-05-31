@@ -10,12 +10,23 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // On extrait la partie avant le @ si c'est un email, sinon on prend le nom tel quel
-    const displayName = username.includes('@') ? username.split('@')[0] : username;
-    const capitalizedName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
     
-    // On redirige en passant le nom dans le state
-    navigate('/dashboard-patient', { state: { name: capitalizedName } });
+    // 1. Prendre la partie avant le @ si c'est un email
+    let rawName = username.includes('@') ? username.split('@')[0] : username;
+    
+    // 2. Remplacer les . _ - par des espaces
+    rawName = rawName.replace(/[._-]/g, ' ');
+    
+    // 3. Supprimer tous les chiffres
+    rawName = rawName.replace(/[0-9]/g, '');
+    
+    // 4. Mettre une majuscule à chaque mot et nettoyer les espaces
+    let finalName = rawName.trim().replace(/\b\w/g, char => char.toUpperCase());
+    
+    // 5. Si le nom est vide (ex: username était "123@..."), on met un nom par défaut
+    if (!finalName) finalName = "Utilisateur";
+
+    navigate('/dashboard-patient', { state: { name: finalName } });
   };
 
   return (

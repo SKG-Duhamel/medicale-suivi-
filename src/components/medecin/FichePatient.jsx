@@ -1,68 +1,50 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaHeartbeat, FaArrowLeft, FaStethoscope, FaFilePrescription, FaFlask, FaThermometerHalf } from 'react-icons/fa';
-import SymptomModal from './SymptomModal';
-import './DossierMedical.css';
+import './FichePatient.css';
 
-const DossierMedical = () => {
+const FichePatient = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // On récupère le nom du patient transmis lors de la navigation
+  const patientName = location.state?.name || 'Patient Inconnu';
+
   const [activeTab, setActiveTab] = useState('consultations');
-  const [isSymptomModalOpen, setIsSymptomModalOpen] = useState(false);
 
-  // Données simulées
-  const [symptoms, setSymptoms] = useState([
-    { id: 1, desc: "Fatigue et maux de tête", date: "2026-02-12", status: "En attente" },
-    { id: 2, desc: "Douleur au dos", date: "2026-02-05", status: "Résolu" }
-  ]);
-
+  // Données simulées pour ce patient
   const consultations = [
-    { id: 1, motif: "Grippe", doctor: "Dr. Thomas Dubois", specialty: "Généraliste", date: "2026-02-10", status: "Terminée" }
+    { id: 1, motif: "Grippe", date: "2024-02-10", status: "Terminée" }
   ];
-
   const ordonnances = [
-    { id: 1, medoc: "Paracétamol 1000mg", doctor: "Dr. Sophie Martin", date: "2026-02-14", dosage: "3x/jour" },
-    { id: 2, medoc: "Aspirine 100mg", doctor: "Dr. Marie Lefebvre", date: "2026-01-28", dosage: "1x/jour" },
-    { id: 3, medoc: "Vitamine D3", doctor: "Dr. Thomas Dubois", date: "2026-01-15", dosage: "1x/jour" }
+    { id: 1, medoc: "Paracétamol 1000mg", date: "2024-02-14", dosage: "3x/jour" }
   ];
-
   const analyses = [
-    { id: 1, type: "Prise de sang", date: "2026-02-15", status: "Résultat disponible" }
+    { id: 1, type: "Prise de sang", date: "2024-02-15", status: "Résultat disponible" }
   ];
-
-  // Fonction pour ajouter un symptôme
-  const handleSaveSymptom = (desc) => {
-    const newSymptom = {
-      id: Date.now(),
-      desc: desc,
-      date: new Date().toISOString().split('T')[0], // Date du jour
-      status: "En attente"
-    };
-    setSymptoms([newSymptom, ...symptoms]);
-  };
+  const symptoms = [
+    { id: 1, desc: "Fatigue et maux de tête", date: "2024-02-12", status: "En attente" }
+  ];
 
   return (
-    <div className="dossier-container">
-      <div className="dossier-card">
+    <div className="fiche-container">
+      <div className="fiche-card">
         
         <button className="back-btn" onClick={() => navigate(-1)}>
           <FaArrowLeft /> Retour
         </button>
 
-        <div className="dossier-header">
+        <div className="fiche-header">
           <div className="app-logo">
             <FaHeartbeat className="app-logo-icon" />
-            <h1>SuiviHealth</h1>
+            <h1>SuiviHealth Pro</h1>
           </div>
-          
-          <div className="dossier-title-row">
-            <h2>Dossier Médical</h2>
-            <button className="btn-add-symptom" onClick={() => setIsSymptomModalOpen(true)}>
-              + Symptômes
-            </button>
+          <div className="fiche-patient-identity">
+            <h2>Dossier de : {patientName}</h2>
+            <p>Historique médical complet</p>
           </div>
         </div>
 
-        {/* Cartes résumé */}
         <div className="summary-grid">
           <div className="summary-item" onClick={() => setActiveTab('consultations')}>
             <FaStethoscope className="summary-icon" />
@@ -86,7 +68,6 @@ const DossierMedical = () => {
           </div>
         </div>
 
-        {/* Onglets */}
         <div className="tabs">
           <button className={`tab-btn ${activeTab === 'consultations' ? 'active' : ''}`} onClick={() => setActiveTab('consultations')}>Consultations</button>
           <button className={`tab-btn ${activeTab === 'ordonnances' ? 'active' : ''}`} onClick={() => setActiveTab('ordonnances')}>Ordonnances</button>
@@ -94,15 +75,12 @@ const DossierMedical = () => {
           <button className={`tab-btn ${activeTab === 'symptomes' ? 'active' : ''}`} onClick={() => setActiveTab('symptomes')}>Symptômes</button>
         </div>
 
-        {/* Contenu des onglets */}
         <div className="tab-content">
-          
           {activeTab === 'consultations' && (
             <div className="record-list">
               {consultations.map(c => (
                 <div key={c.id} className="record-card">
                   <h4>{c.motif}</h4>
-                  <p>{c.doctor} ({c.specialty})</p>
                   <div className="record-meta">
                     <span>{c.date}</span>
                     <span className="badge-terminer">{c.status}</span>
@@ -117,7 +95,6 @@ const DossierMedical = () => {
               {ordonnances.map(o => (
                 <div key={o.id} className="record-card">
                   <h4>{o.medoc}</h4>
-                  <p>{o.doctor}</p>
                   <div className="record-meta">
                     <span>{o.date} - {o.dosage}</span>
                   </div>
@@ -155,18 +132,10 @@ const DossierMedical = () => {
               ))}
             </div>
           )}
-
         </div>
       </div>
-
-      {/* Modale d'ajout de symptôme */}
-      <SymptomModal 
-        isOpen={isSymptomModalOpen} 
-        onClose={() => setIsSymptomModalOpen(false)} 
-        onSave={handleSaveSymptom}
-      />
     </div>
   );
 };
 
-export default DossierMedical;
+export default FichePatient;

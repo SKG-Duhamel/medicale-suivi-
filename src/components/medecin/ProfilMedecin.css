@@ -1,0 +1,48 @@
+.profil-container {
+    display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
+    background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px;
+  }
+  .profil-card {
+    background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%; max-width: 600px; position: relative; margin-top: 20px;
+  }
+  .back-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; font-weight: 500; z-index: 10; }
+  .back-btn:hover { color: #007bff; }
+  
+  .app-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
+  .app-logo-icon { color: #007bff; font-size: 28px; }
+  .app-logo h1 { font-size: 24px; color: #1e293b; margin: 0; font-weight: 700; }
+  
+  .profil-header { text-align: center; margin-bottom: 30px; }
+  .profil-header h2 { margin: 0; color: #1e293b; font-size: 22px; }
+  
+  /* Avatar et Identité */
+  .profil-identity {
+    display: flex; flex-direction: column; align-items: center; margin-bottom: 30px;
+    padding-bottom: 20px; border-bottom: 1px solid #e2e8f0;
+  }
+  .profil-avatar {
+    width: 80px; height: 80px; border-radius: 50%; background: #eff6ff; color: #007bff;
+    display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 15px;
+  }
+  .profil-identity h3 { margin: 0; color: #1e293b; font-size: 20px; }
+  .profil-identity p { margin: 5px 0 0 0; color: #64748b; font-size: 14px; font-weight: 500; }
+  
+  /* Menu */
+  .profil-menu { display: flex; flex-direction: column; gap: 20px; }
+  .menu-section { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
+  
+  .menu-item {
+    display: flex; align-items: center; gap: 15px; padding: 15px 20px;
+    cursor: pointer; transition: 0.2s; border-bottom: 1px solid #e2e8f0;
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item:hover { background: #ffffff; }
+  
+  .menu-icon { font-size: 20px; color: #64748b; width: 24px; text-align: center; }
+  .menu-item span { font-size: 15px; color: #1e293b; font-weight: 500; }
+  
+  .menu-item.logout { color: #ef4444; }
+  .menu-item.logout .menu-icon { color: #ef4444; }
+  .menu-item.logout span { color: #ef4444; font-weight: 600; }
+  .menu-item.logout:hover { background: #fef2f2; }
