@@ -28,7 +28,7 @@ const DashboardMedecin = () => {
         <nav className="sidebar-nav">
           <button className="nav-item active"><FaHome /> Tableau de bord</button>
           <button className="nav-item" onClick={() => navigate('/consultations-medecin')}><FaCalendarCheck /> Consultations</button>
-          <button className="nav-item"><FaUserFriends /> Mes Patients</button>
+          <button className="nav-item" onClick={() => navigate('/urgences-medecin')}><FaClock /> Urgence</button>
           <button className="nav-item" onClick={() => navigate('/dossier-medecin')}><FaFolderOpen /> Dossiers Médicaux</button>
           <button className="nav-item" onClick={() => navigate('/profil-medecin', { state: { name: doctorName } })}><FaUser /> Mon Profil</button>
         </nav>
@@ -122,7 +122,7 @@ const DashboardMedecin = () => {
         <button className="nav-item active"><FaHome /> Accueil</button>
         <button className="nav-item" onClick={() => navigate('/consultations-medecin')}><FaCalendarCheck /> Planning</button>
         <button className="nav-item" onClick={() => navigate('/dossier-medecin')}><FaFolderOpen /> Dossier</button>
-        <button className="nav-item"><FaUserFriends /> Patients</button>
+        <button className="nav-item" onClick={() => navigate('/urgences-medecin')}><FaClock /> Urgence</button>
         <button className="nav-item" onClick={() => navigate('/profil-medecin', { state: { name: doctorName } })}><FaUser /> Profil</button>
       </nav>
 
