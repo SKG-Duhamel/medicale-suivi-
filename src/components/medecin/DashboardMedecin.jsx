@@ -93,7 +93,7 @@ const DashboardMedecin = () => {
         <div className="dashboard-section">
           <div className="section-header">
             <h2>Consultations d'aujourd'hui</h2>
-            <button className="see-all-btn">Voir tout le planning</button>
+            <button className="see-all-btn" onClick={() => navigate('/consultations-medecin')}>Voir tout le planning</button>
           </div>
           <div className="activity-list">
             {todayConsultations.map(consult => (

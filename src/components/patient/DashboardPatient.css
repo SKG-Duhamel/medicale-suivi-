@@ -203,5 +203,11 @@
   .bottom-nav { display: flex; }
   .appointment-card { flex-direction: column; align-items: flex-start; gap: 10px; }
   .premium-banner { flex-direction: column; text-align: center; gap: 15px; }
+  .quick-grid {
+    grid-template-columns: 1fr !important; /* une seule colonne sur mobile */
+  }
+  .dashboard-main {
+    padding-bottom: 80px !important;
+  }
 }
 

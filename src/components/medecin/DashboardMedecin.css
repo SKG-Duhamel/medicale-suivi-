@@ -64,4 +64,10 @@
   .dashboard-main { padding: 20px; padding-bottom: 80px; }
   .bottom-nav { display: flex; }
   .consult-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .quick-grid {
+    grid-template-columns: 1fr !important; /* une seule colonne sur mobile */
+  }
+  .dashboard-main {
+    padding-bottom: 80px !important;
+  }
 }

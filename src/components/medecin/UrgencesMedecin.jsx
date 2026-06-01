@@ -11,7 +11,7 @@ const UrgencesMedecin = () => {
     { id: 1, patient: "Jean-Pierre Dupont", time: "Il y a 2 min", desc: "Douleurs thoraciques intenses et difficultés respiratoires signalées par l'IA.", severity: "Critique" },
     { id: 2, patient: "Lucas Bernard", time: "Il y a 15 min", desc: "Taux de glycémie anormalement bas détecté, risque de malaise.", severity: "Élevée" }
   ];
-
+  
   return (
     <div className="urg-med-container">
       <div className="urg-med-card">
@@ -49,7 +49,7 @@ const UrgencesMedecin = () => {
 
               <div className="urg-actions">
                 <button className="btn-take-charge">Prendre en charge</button>
-                <button className="btn-view-patient"><FaUser /> Voir dossier</button>
+                <button className="btn-view-patient" onClick={() => navigate('/fiche-patient', { state: { name: alert.patient } })}><FaUser /> Voir dossier</button>
               </div>
             </div>
           ))}

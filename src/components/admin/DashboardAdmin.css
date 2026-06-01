@@ -58,10 +58,15 @@
   .sidebar { 
     display: none !important; 
   } 
- 
+  .quick-grid {
+    grid-template-columns: 1fr !important; /* une seule colonne sur mobile */
+  }
   .mobile-top-logo { display: flex; }
   .dashboard-main { padding: 20px; padding-bottom: 80px; }
   .bottom-nav { display: flex; }
   .activity-item { flex-wrap: wrap; gap: 10px; }
   .tx-amount { margin-left: auto; }
+  .dashboard-main {
+    padding-bottom: 80px !important;
+  }
 }

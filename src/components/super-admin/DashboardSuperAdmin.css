@@ -1,7 +1,6 @@
 /* Base pro commune */
-/* Base pro commune */
 .dashboard-layout { display: flex; min-height: 100vh; background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-.dashboard-main { flex: 1; padding: 40px; overflow-y: auto; }
+.dashboard-main { flex: 1; padding: 40px; overflow-y: auto; padding-bottom: 80px; }
 .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; }
 .dashboard-header h1 { font-size: 28px; color: #1e293b; margin: 0; font-weight: 700; }
 .dashboard-header p { color: #94a3b8; margin: 5px 0 0 0; font-size: 15px; }
@@ -29,14 +28,19 @@
 
 .consult-time { display: flex; flex-direction: column; align-items: center; color: #7c3aed; font-weight: 700; min-width: 80px; font-size: 12px; }
 .consult-time svg { margin-bottom: 5px; font-size: 18px; color: #94a3b8; }
+
 .act-info { flex: 1; }
 .act-info h4 { margin: 0; color: #1e293b; font-size: 15px; font-weight: 600; }
 
 .tx-status { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; }
-.status-paid { background: #f5f3ff; color: #7c3aed; }
+.status-paid { background: #f5f3ff; color: #7c3aed; } /* Violet pour Premium */
 .status-pending { background: #f1f5f9; color: #64748b; }
 
-/* ===== SUPER ADMIN THEME ===== */
+.bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background-color: #ffffff; border-top: 1px solid #e2e8f0; justify-content: space-around; padding: 10px 0; z-index: 100; }
+.bottom-nav .nav-item { flex-direction: column; gap: 4px; font-size: 11px; color: #64748b; padding: 5px; justify-content: center; text-align: center; width: auto; border: none; background: none; cursor: pointer; font-family: inherit; }
+.bottom-nav .nav-item.active { color: #7c3aed; }
+
+/* ===== SUPER ADMIN SPECIFIC STYLES (Violet) ===== */
 .sa-sidebar { border-right: 1px solid #e2e8f0; background: #fff; }
 .sa-sidebar .sidebar-logo-icon, .sa-icon { color: #7c3aed !important; }
 .sa-sidebar .nav-item.active { background-color: #f5f3ff; color: #7c3aed; }
@@ -48,41 +52,25 @@
 .icon-teal { background-color: #f0fdfa; color: #14b8a6; }
 .icon-gold { background-color: #fffbeb; color: #f59e0b; }
 
-/* Sidebar générique */
+@media (min-width: 769px) { .quick-grid.sa-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px) { 
+  .sa-sidebar { display: none; }
+  .mobile-top-logo { display: flex; }
+  .dashboard-main { padding: 20px; padding-bottom: 80px; }
+  .bottom-nav { display: flex; }
+  .activity-item { flex-wrap: wrap; gap: 10px; }
+  .quick-grid {
+    grid-template-columns: 1fr !important; /* une seule colonne sur mobile */
+  }
+  .dashboard-main {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Sidebar générique (à mettre si pas déjà global) */
 .sidebar { width: 260px; background-color: #ffffff; display: flex; flex-direction: column; padding: 25px 15px; }
 .sidebar-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; padding-left: 15px; }
 .sidebar-logo-icon { font-size: 24px; }
 .sidebar-logo h2 { font-size: 20px; color: #1e293b; margin: 0; }
 .sidebar-nav { display: flex; flex-direction: column; gap: 5px; }
 .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 15px; color: #64748b; border-radius: 8px; font-weight: 500; transition: all 0.2s; cursor: pointer; border: none; background: none; font-family: inherit; font-size: 15px; width: 100%; text-align: left; }
-
-/* ========================================= */
-/* CORRECTION RESPONSIVE MOBILE              */
-/* ========================================= */
-.bottom-nav { 
-  display: none; /* Caché par défaut */ 
-  position: fixed; bottom: 0; left: 0; width: 100%; background-color: #ffffff; 
-  border-top: 1px solid #e2e8f0; justify-content: space-around; padding: 10px 0; z-index: 100; 
-}
-.bottom-nav .nav-item { 
-  flex-direction: column; gap: 4px; font-size: 11px; color: #64748b; padding: 5px; 
-  justify-content: center; text-align: center; width: auto; border: none; background: none; cursor: pointer; font-family: inherit;
-}
-.bottom-nav .nav-item.active { color: #7c3aed; }
-
-@media (min-width: 769px) { 
-  .quick-grid.sa-grid { grid-template-columns: repeat(4, 1fr); } 
-}
-
-@media (max-width: 768px) { 
-  /* Force le masquage de la sidebar sur mobile */
-  .sidebar.sa-sidebar { display: none !important; } 
-  
-  .mobile-top-logo { display: flex; }
-  .dashboard-main { padding: 20px; padding-bottom: 80px; }
-  
-  /* Force l'affichage de la barre du bas sur mobile */
-  .bottom-nav { display: flex !important; } 
-  
-  .activity-item { flex-wrap: wrap; gap: 10px; }
-}
