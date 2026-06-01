@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FaHome, FaVideo, FaFolderOpen, FaUserFriends, FaClock, FaUser, FaHeartbeat, FaCalendarCheck } from 'react-icons/fa';
+import { FaHome, FaVideo, FaFolderOpen, FaClock, FaUser, FaHeartbeat, FaCalendarCheck } from 'react-icons/fa';
 import './DashboardMedecin.css';
 
 const DashboardMedecin = () => {
