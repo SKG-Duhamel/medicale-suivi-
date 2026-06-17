@@ -1,0 +1,477 @@
+/* RegisterPatient.css - Styles spécifiques à la page d'inscription */
+.register-patient-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register-patient-container button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.register-patient-container button:focus-visible {
+    outline: 1px solid #2859df;
+}
+
+.register-patient-container {
+    --register-blue: #287bff;
+    --register-blue2: rgb(0, 140, 255);
+    --register-rouge: #e74c3c;
+    --register-rougesombre: #bc3f2ed3;
+    --register-textColor: #6e8a99;
+    --register-noir: #1b262c;
+    --register-fbody: rgb(239, 247, 250);
+    --register-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Page principale */
+.register-patient-page {
+    background: linear-gradient(145deg, #e9f0f5ea 0%, #f3f5f7 100%);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 1.1rem;
+}
+
+/* Main card container - largeur 550px */
+.register-patient-card {
+    max-width: 550px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: var(--register-shadow);
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+/* bouton de retour */
+.back-btn {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: none;
+    border: none;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    z-index: 10;
+  }
+  
+  .back-btn:hover {
+    color: #007bff;
+  }
+.register-inner-padding {
+    padding: 1rem;
+}
+
+/* Header styles */
+.register-login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-logo-sidebar {
+    height: 55px;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register-logo-icon {
+    position: relative;
+    margin-left: 10px;
+    background: var(--register-blue);
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.register-logo-text span {
+    color: var(--register-blue);
+}
+
+.register-logo-text {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--register-noir);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.register-login-header h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.register-subtitle {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Global error message */
+.register-global-error {
+    background-color: #fee9e6;
+    border-left: 4px solid var(--register-rouge);
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
+    color: var(--register-rougesombre);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Formulaire */
+.register-row-2cols {
+    display: flex;
+    gap: 1rem;
+}
+
+.register-row-2cols .register-input-group {
+    flex: 1;
+}
+
+.register-input-label {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--register-noir);
+}
+
+.register-label-icon {
+    margin-right: 6px;
+    color: var(--register-blue2);
+}
+
+.register-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.register-input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #9aaeb9;
+    font-size: 0.95rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Champ input avec padding ajusté: 0.8rem 3.6rem 0.8rem 2.6rem */
+.register-input-field {
+    width: 400px;
+    padding: 0.8rem 3.6rem 0.8rem 2.6rem;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1.2rem;
+    background-color: #fefefe;
+    transition: all 0.2s;
+    outline: none;
+    color: var(--register-textColor);
+    font-weight: 500;
+    display: block;
+    margin: 0 auto;
+}
+
+.register-input-field:focus {
+    border-color: var(--register-blue);
+    box-shadow: var(--register-shadow);
+}
+
+/* Groupe input pour centrage */
+.register-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.register-error-msg {
+    font-size: 0.7rem;
+    color: var(--register-rouge);
+    margin-top: 0.35rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.register-status-icon-right {
+    position: absolute;
+    right: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.register-password-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--register-textColor);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.register-password-toggle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Gender radio group */
+.register-gender-group {
+    margin: 0.5rem 0 0.8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.register-gender-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--register-noir);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.register-gender-title i {
+    color: var(--register-blue);
+}
+
+.register-radio-container {
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+}
+
+.register-radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    color: var(--register-noir);
+    cursor: pointer;
+}
+
+.register-radio-option input {
+    accent-color: #2859df;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.register-radio-option input:disabled {
+    cursor: not-allowed;
+}
+
+.register-gender-error {
+    margin-top: 0.3rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* pwd oublier */
+.login-forgot-link {
+    font-size: 0.9rem;
+    color: rgb(42 ,157 ,143);
+    padding-top: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 0 0.3rem 0 4.3rem;
+}
+
+.login-forgot-link:hover {
+    color: rgb(0, 140, 255);
+    text-decoration: underline;
+}
+
+/* zone du code et enovoyer */
+
+.register-input-fieldC {
+    width: 300px;
+    padding: 0.8rem 3.6rem 0.8rem 2.6rem;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1.2rem;
+    background-color: #fefefe;
+    transition: all 0.2s;
+    outline: none;
+    color: var(--register-textColor);
+    font-weight: 500;
+    display: block;
+    margin: 0 auto;
+}
+
+.register-input-fieldC:focus {
+    border-color: var(--register-blue);
+    box-shadow: var(--register-shadow);
+}
+
+/* bouton envoyer code */
+.btn-registerR {
+
+    height: 46px;
+    background: linear-gradient(100deg, #1155ad, rgba(0, 140, 255, 0.856));
+    border: none;
+    padding: 0 0.70rem;
+    border-radius: 1.2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 5px 10px rgba(28,110,143,0.25);
+}
+.btn-registerR:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(100deg, #1155ad, rgba(0, 140, 255, 0.856));
+}
+
+/* Buttons */
+.register-btn-register {
+    width: 400px;
+    background: linear-gradient(100deg, #1155ad, rgba(0, 140, 255, 0.856));
+    border: none;
+    padding: 0.85rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 1rem auto;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 5px 10px rgba(28, 110, 143, 0.25);
+    display: block;
+}
+
+.register-btn-register:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: linear-gradient(100deg, #1155ad, rgba(0, 140, 255, 0.856));
+}
+
+.register-btn-register:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Messages de succès et erreur */
+.register-success-marker {
+    color: #2ecc71;
+}
+
+.register-error-marker {
+    color: #e74c3c;
+}
+
+.register-success-msg {
+    color: #2ecc71;
+    font-size: 0.7rem;
+    margin-top: 0.35rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Footer */
+.register-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.register-footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-footer a:hover {
+    text-decoration: underline;
+}
+
+.register-privacy {
+    font-size: 11px;
+    color: #999;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 550px) {
+    .register-patient-card {
+        max-width: 95%;
+    }
+    
+    .register-input-label,
+    .register-input-wrapper,
+    .register-input-field,
+    .register-error-msg,
+    .register-btn-register,
+    .register-success-msg {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-inner-padding { 
+        padding: 1.5rem; 
+    }
+    .register-row-2cols { 
+        flex-direction: column; 
+        gap: 0; 
+    }
+    .register-gender-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

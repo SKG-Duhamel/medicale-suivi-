@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+html,body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background: #eaf0f5; */
+    background: var(--bgbody);
+    overflow-x: hidden;
+}
+/* html{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+} */
+
+/* Variables CSS globales */
+:root {
+
+    /* Couleurs claires */
+    /* pour l'enregistrement    et connexion */
+    --register-blue: #287bff;
+    --register-blue2: rgb(0, 140, 255);
+    --register-rouge: #e74c3c;
+    --register-rougesombre: #bc3f2ed3;
+    --register-textColor: #6e8a99;
+    --register-noir: #1b262c;
+    --register-fbody: rgb(239, 247, 250);
+    --register-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+    --bg-page: #ffffff00;
+    --bgbody:#eff1f3;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --trait:#cbd5e1;
+    --accent-blue: #2967cc;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --accent-orange: #f59e0b;
+    --border-light: #e2e8f0;
+    --sidebar-bg: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --header-bg: #ffffff;
+    
+    /* Couleurs sombres */
+    --bg-page-G: #0f172a;
+    --text-primary-G: #eaf0f5;
+    --text-secondary-G: #94a3b8;
+    --border-light-G: #334155;
+    --sidebar-bg-G: #111827;
+    --shadow-G: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --header-bg-G: #1e293b;
+}
+
+/* Mode sombre */
+body.mode-sombre {
+    --bg-page: var(--bg-page-G);
+    --bgbody:var(--bg-page-G);
+    --text-primary: var(--text-primary-G);
+    --text-secondary: var(--text-secondary-G);
+    --border-light: var(--border-light-G);
+    --sidebar-bg: var(--sidebar-bg-G);
+    --shadow: var(--shadow-G);
+    --header-bg: var(--header-bg-G);
+    background: var(--bg-page-G);
+}
+

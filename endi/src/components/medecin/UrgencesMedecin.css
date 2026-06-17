@@ -1,0 +1,61 @@
+.urg-med-container {
+    display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
+    background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px;
+  }
+  .urg-med-card {
+    background: #ffffff; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%; max-width: 800px; position: relative; margin-top: 20px;
+  }
+  .back-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; color: #64748b; display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 14px; font-weight: 500; z-index: 10; }
+  .back-btn:hover { color: #007bff; }
+  
+  .app-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px; }
+  .app-logo-icon { color: #007bff; font-size: 28px; }
+  .app-logo h1 { font-size: 24px; color: #1e293b; margin: 0; font-weight: 700; }
+  
+  .urg-med-header { text-align: center; margin-bottom: 30px; }
+  .urg-med-header h2 { margin: 0; color: #dc2626; font-size: 22px; } /* Rouge pour urgence */
+  .urg-subtitle { color: #64748b; font-size: 14px; margin-top: 5px; }
+  
+  .urg-list { display: flex; flex-direction: column; gap: 20px; }
+  
+  .urg-item {
+    display: flex; gap: 20px; padding: 20px; border-radius: 8px; border: 1px solid #fecaca;
+    background: #ffffff; transition: 0.2s;
+  }
+  .urg-item.critical { border-left: 6px solid #dc2626; background: #fffafa; }
+  .urg-item.high { border-left: 6px solid #f59e0b; background: #fffbeb; }
+  
+  .urg-severity-icon { font-size: 28px; margin-top: 5px; }
+  .critical .urg-severity-icon { color: #dc2626; }
+  .high .urg-severity-icon { color: #f59e0b; }
+  
+  .urg-info { flex: 1; }
+  .urg-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .urg-top-row h3 { margin: 0; color: #1e293b; font-size: 16px; }
+  
+  .urg-badge { padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+  .badge-critical { background: #fef2f2; color: #dc2626; }
+  .badge-high { background: #fffbeb; color: #d97706; }
+  
+  .urg-desc { margin: 0 0 8px 0; color: #374151; font-size: 14px; line-height: 1.5; }
+  .urg-time { margin: 0; font-size: 12px; color: #6b7280; display: flex; align-items: center; gap: 5px; }
+  
+  .urg-actions { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+  .btn-take-charge {
+    background: #dc2626; color: #fff; border: none; padding: 8px 15px;
+    border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; transition: 0.2s; white-space: nowrap;
+  }
+  .btn-take-charge:hover { background: #b91c1c; }
+  .btn-view-patient {
+    background: #f1f5f9; color: #64748b; border: none; padding: 8px 15px;
+    border-radius: 6px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; transition: 0.2s;
+  }
+  .btn-view-patient:hover { background: #e2e8f0; }
+  
+  @media (max-width: 768px) {
+    .urg-item { flex-direction: column; }
+    .urg-top-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+    .urg-actions { flex-direction: row; width: 100%; }
+    .btn-take-charge, .btn-view-patient { flex: 1; justify-content: center; }
+  }

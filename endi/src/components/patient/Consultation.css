@@ -1,0 +1,559 @@
+/*  CONTENEUR PRINCIPAL   */
+.consultation-container {
+    display: flex;              
+    gap: 24px;                  
+    padding: 24px;
+     min-height: 100vh;              
+    margin: 0 auto;
+    
+}
+
+/*  COLONNE GAUCHE - LISTE DES MÉDECINS  */
+.consultation-gauche {
+    flex: 1;                   
+    min-width: 0;              
+    overflow: hidden;          
+}
+
+/* En-tête de la consultation */
+.consultation-header {
+    margin-bottom: 24px;
+}
+
+.consultation-header h1 {
+    font-size: 28px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.consultation-header p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/*  COLONNE DROITE - HISTORIQUE  */
+.consultation-droite {
+    width: 320px;              
+    min-width: 280px;          
+    max-width: 380px;          
+    background: var(--sidebar-bg);
+    border-radius: 16px;
+    border: 1px solid var(--trait);
+    padding: 20px;
+    height: fit-content;      
+    max-height: calc(100vh - 150px); 
+    display: flex;
+    flex-direction: column;
+    position: sticky;         
+    top: 80px;                
+}
+/* En-tête de l'historique */
+.historique-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--trait);
+    margin-bottom: 16px;
+}
+
+.historique-header h3 {
+    font-size: 16px;
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.historique-header h3 i {
+    color: var(--accent-blue);
+}
+
+.nombre-consultations {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-page);
+    padding: 2px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--trait);
+}
+
+/* Liste des consultations dans l'historique */
+.historique-liste {
+    flex: 1;
+    overflow-y: auto;         
+    padding-right: 4px;
+}
+
+/* Personnalisation de la scrollbar */
+.historique-liste::-webkit-scrollbar {
+    width: 2px;
+}
+
+.historique-liste::-webkit-scrollbar-track {
+    background: var(--trait);
+    border-radius: 4px;
+}
+
+.historique-liste::-webkit-scrollbar-thumb {
+    background: var(--accent-blue);
+    border-radius: 4px;
+}
+
+/* Élément individuel de l'historique */
+.historique-item {
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--bg-page);
+    border: 1px solid var(--border-light);
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.historique-item:hover {
+    border-color: var(--accent-blue);
+    box-shadow: var(--shadow);
+    transform: translateX(-4px);
+}
+
+.historique-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.historique-date i {
+    font-size: 11px;
+}
+
+.historique-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.historique-medecin {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.historique-specialite {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.historique-mode {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+    width: fit-content;
+}
+
+.historique-mode.mode-messagerie {
+    background: rgba(41, 103, 204, 0.1);
+    color: var(--accent-blue);
+}
+
+.historique-mode.mode-video {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+}
+
+/* Message quand l'historique est vide */
+.aucun-historique {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+}
+
+.aucun-historique i {
+    font-size: 40px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+.aucun-historique p {
+    font-size: 14px;
+}
+
+/*  GRILLE DES MÉDECINS  */
+.medecins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+/*  CARTE MÉDECIN  */
+.carte-medecin {
+    background: var(--sidebar-bg);
+    border-radius: 16px;
+    padding: 7px;            
+    border: 1px solid var(--trait);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    position: relative;
+    height: 100%;
+    min-height: 200px;        
+}
+
+
+.carte-medecin:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent-blue);
+}
+/*  CONTENEUR GRAND - ALIGNEMENT HORIZONTAL  */
+.grand {
+    display: flex;              
+    align-items: center;        
+    gap: 1px;                
+    flex: 1;                   
+    min-height: 130px;         
+}
+
+
+/*  PHOTO DU MÉDECIN  */
+
+.medecin-photo {
+    width: 100px;             
+    height: 120px;            
+    border-radius: 12px;      
+    background: linear-gradient(135deg, var(--accent-blue), #4a90e2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;           
+    margin: 0 auto;           
+    overflow: hidden;         
+    position: relative;
+}
+
+/* Icône par défaut du médecin */
+.medecin-photo i {
+    font-size: 48px;
+    color: white;
+}
+
+/* Image du médecin (quand une photo est disponible) */
+.medecin-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+    display: block;
+}
+
+/*  INFORMATIONS DU MÉDECIN  */
+.medecin-info {
+    font-size: 16px;          
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: left;         
+}
+
+.medecin-info h3 {
+    font-size: 17px;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;      
+}
+
+.specialite {
+    color: var(--accent-blue);
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Détails du médecin (note et expérience) */
+.medecin-details {
+    display: flex;
+    justify-content: center;  
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 4px 0;
+}
+
+.medecin-details span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.medecin-details i {
+    font-size: 12px;
+}
+
+/* Disponibilité */
+.disponibilite {
+    font-size: 12px;
+    color: var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 2px 0;
+}
+
+/*  PRIX DE LA CONSULTATION  */
+.prix-consultation {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-blue);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-top: 1px dashed var(--border-light);
+    border-bottom: 1px dashed var(--border-light);
+    margin: 4px 0;
+}
+
+.prix-consultation i {
+    font-size: 14px;
+    color: var(--accent-green);
+}
+
+/* Badges des modes de consultation */
+.modes-consultation {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 4px 0;
+}
+
+.mode-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mode-badge.messagerie {
+    background: rgba(41, 103, 204, 0.1);
+    color: var(--accent-blue);
+}
+
+.mode-badge.video {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+}
+
+/*  BOUTON CONSULTER EN BAS DE LA CARTE  */
+.btn-consulter {
+    width: 100%;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--accent-blue), #203d5f); 
+    color: #dadada !important; 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin: 8px 10px 0 2px;
+}
+
+.btn-consulter:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2a4e79, #023266); 
+    color: #ffffff; 
+}
+
+.btn-consulter:disabled {
+    background: var(--text-secondary);
+    color: #ffffff; 
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-consulter i {
+    font-size: 14px;
+    color: #ffffff; 
+}
+
+/*  ÉTAT AUCUN RÉSULTAT  */
+.aucun-resultat {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--sidebar-bg);
+    border-radius: 16px;
+    border: 1px solid var(--trait);
+}
+
+.aucun-resultat i {
+    font-size: 64px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.aucun-resultat h3 {
+    font-size: 20px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.aucun-resultat p {
+    color: var(--text-secondary);
+}
+
+/*  RESPONSIVE  */
+
+@media (min-width: 1025px) {
+    
+    .medecin-photo {
+        width: 100px;          
+        height: 120px;
+    }
+    
+    .medecin-photo i {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grand {
+        flex-direction: column;  
+        align-items: center;    
+        gap: 8px;              
+        min-height: auto;       
+    }
+    
+    /* Ajustement de la taille de la photo en mode vertical */
+    .medecin-photo {
+        width: 80px;
+        height: 100px;
+    }
+    
+    .medecin-photo i {
+        font-size: 40px;
+    }
+    
+    .medecin-info {
+        width: 100%;            
+        text-align: center;     
+    }
+    
+    /* Adaptation des badges en mode vertical */
+    .modes-consultation {
+        justify-content: center;
+    }
+    
+    /* Ajustement de la carte en mode vertical */
+    .carte-medecin {
+        min-height: 200px;      
+    }
+    .medecin-info h3 {
+        text-align: center;    
+    }
+    
+    .specialite {
+        text-align: center;    
+    }
+    
+    .medecin-details {
+        justify-content: center;
+    }
+    
+    .disponibilite {
+        justify-content: center;
+    }
+    
+    .prix-consultation {
+        text-align: center;
+    }
+}
+
+/* Mobiles et petits écrans */
+@media (max-width: 768px) and (max-width: 840px) and (max-width: 924px)    {
+    .consultation-container {
+        flex-direction: column;  
+        padding: 16px;
+        gap: 10px;
+    }
+    
+    .consultation-droite {
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+        position: static;       
+        max-height: 400px;      
+        order: 2;             
+    }
+    
+    .consultation-gauche {
+        order: 1;              
+    }
+    
+    .medecins-grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 8px;
+    }
+    
+    .consultation-header h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .consultation-container {
+        padding: 12px;
+    }
+    
+    .medecins-grid {
+        grid-template-columns: 1fr; 
+        gap: 16px;
+    }
+    
+    .carte-medecin {
+        padding: 16px;
+        min-height: 240px;
+    }
+    
+    .medecin-photo {
+        width: 80px;
+        height: 100px;
+    }
+    
+    .medecin-photo i {
+        font-size: 36px;
+    }
+    
+    .medecin-info h3 {
+        font-size: 15px;
+    }
+    
+    .consultation-droite {
+        padding: 16px;
+        max-height: 300px;
+    }
+    
+    .historique-item {
+        padding: 10px;
+    }
+    
+    .btn-consulter {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
